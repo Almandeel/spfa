@@ -1,0 +1,15 @@
+<?php
+return [
+    "january" => "يناير",
+    "february" => "فبراير",
+    "march" => "مارس",
+    "april" => "أبريل",
+    "may" => "مايو",
+    "june" => "يونيو",
+    "july" => "يوليو",
+    "august" => "أغسطس",
+    "september" => "سبتمبر",
+    "october" => "أكتوبر",
+    "november" => "نوفمبر",
+    "december" => "ديسمبر",
+];

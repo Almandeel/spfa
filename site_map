@@ -1,0 +1,36 @@
+pages
+    home
+    about us
+        service
+        works 
+        news
+        porfolio
+    contact us
+    social media
+
+home 
+    slide 
+    about
+        work
+    footer(soical)
+
+about us    
+    image   
+    description
+    title
+        description
+    footer(social)
+
+service
+    porfolio
+        images  
+    works
+        images
+    news    
+        blog
+    footer(social)
+    
+contact us
+    form 
+    address description
+    footer(social)

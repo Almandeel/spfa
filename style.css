@@ -1,0 +1,391 @@
+@charset "UTF-8";
+html {
+    box-sizing: border-box;
+}
+body {
+    background-color:#fff;
+    box-sizing: border-box;
+    /* height:3000px; */
+}
+
+.main-content {
+    background-color:#fff;
+    box-shadow: 0px -2px 6px 0px #222;
+    padding:0;
+    position: relative;
+}
+
+.section-title {
+    margin-bottom:35px;
+}
+
+/* bootstrap */
+.navbar {
+    border-radius:0;
+    margin-bottom:0;
+    border:none;
+}
+
+.navbar a {
+    color:#fff !important;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+    background-color:#338800 !important;
+}
+
+.navbar-inverse .navbar-nav > li:hover, .navbar-inverse .navbar-nav > li.active {
+    background-color:#338800 !important;
+}
+
+.navbar-inverse .navbar-nav > li:hover::after , .navbar-inverse .navbar-nav > li.active::after {
+    content: "";
+    display: inline-block;
+    background-color: #ffffff;
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-width: 1px 6px 9px 6px;
+    border-style: solid;
+    border-color: #338800 #338800 #ffffff;
+    transform: translate(50%);
+    
+}
+
+.scound .navbar-nav > li > a {
+    line-height: 6px;
+}
+
+.navbar-inverse {
+    background-color:#65ba0f;
+}
+
+
+/* header */
+
+.scound-navbar {
+    background-color:#65ba0f;
+    min-height: 30px;
+}
+
+.scound-navbar  a {
+    color:#fff !important;
+    text-decoration: none;
+}
+
+.scound-navbar ul {
+    margin-bottom:0;
+}
+.scound-navbar ul > li {
+    padding:5px 5px ;
+}
+
+.scound-navbar ul > li > a {
+    display: inline-block;
+    margin: 5px;
+}
+
+header {
+    padding:10px 10px;
+}
+
+header .logo-image {
+    padding:10px;
+    overflow: hidden;
+}
+header .logo-image img {
+    height: 103px;
+    width: 103px;
+}
+
+header .logo-image h1 {
+    font-size: 26px;
+    margin-top: 0;
+}
+
+header .logo-image h1 a {
+    text-decoration: none;
+}
+
+/* slider */
+.flexslider {
+    width: 100%;
+    height:400px;
+    margin-bottom:0;
+    border:none;
+}
+
+.flexslider .slides img {
+    width: 100%;
+    height:400px;
+}
+
+@media screen and (max-width:768px) {
+    .flex-direction-nav {
+        display:none !important;
+    }
+}
+
+/* about */
+.about {
+    padding:50px 0;
+    background-color:#eee;
+}
+
+/* courses */
+.courses {
+    margin:30px;
+}
+
+/* Blog */
+.blog {
+    background-color:#eee;
+    margin:30px 0 0 0;
+    padding:30px 0;
+}
+
+.blog .news {
+    border:2px solid #65ba0f;
+}
+
+.blog .news a {
+    color:#222;
+    font-weight:bold;
+}
+
+.blog .news .blog-image a {
+    display: inline-block;
+    padding: 10px 0;
+    width: 100%;
+    height: 233px;
+    background-size: cover;
+    position: relative;
+}
+
+.blog .news .blog-image a .date{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #65ba0fbd;
+    color: #fff;
+    padding: 10px 5px;
+}
+
+.blog .news .blog-text {
+    padding:10px 8px;
+}
+
+.blog .news .blog-text h3 a:hover {
+    color:#65ba0f;
+    text-decoration:none;
+}
+
+.blog .news .blog-text button {
+    border-radius: 20px;
+}
+
+.blog .news .blog-text button:hover {
+    background-color:#fff;
+    color:#65ba0f;
+    transition: all .2s ease-in;
+}
+
+footer {
+    background-color:#333;
+    padding:10px;
+    color:#fff;
+}
+
+footer p {
+    margin-top: 5px;
+}
+
+
+/* About page */
+.about-image p {
+    margin:25px 0;
+    text-align:justify;
+}
+.about-text {
+    margin-bottom:40px;
+}
+
+aside {
+    margin-top:30px;
+}
+
+aside .asite-item {
+    margin-bottom:50px;
+}
+
+aside .category {
+    border:1px solid #65ba0f;
+    border-bottom:3px solid #65ba0f;
+}
+aside .fill {
+    background-color:#65ba0f;
+    color:#fff;
+    padding: 1px 20px;
+}
+aside .category_list {
+    padding-top:20px;
+}
+
+aside .category_list p {
+    border-bottom:1px solid #000;
+}
+
+aside .category_list a {
+    color:#000;
+}
+
+aside .category_list a:hover {
+    color:#65ba0f;
+    text-decoration: none;
+}
+
+
+
+
+
+/* Blog Page */
+.news-list {
+    margin:30px 0;
+    padding-bottom:20px;
+    border-bottom:2px dashed #cccccc;
+}
+
+.news-list .news-description {
+    padding-bottom: 2%;
+    background-color:#fff;
+    box-shadow: 0px 6px 10px #f5f5f5;
+}
+
+.news-list .news-description h2 {
+    margin-top:5px;
+}
+
+.news-list .news-description h2 a {
+    color:#000;
+    text-decoration: none;
+}
+
+.news-list .news-description a {
+    color:#65ba0f;
+    text-decoration: none;
+}
+
+.news-list .news-description a:hover {
+    color:#65ba0f;
+}
+
+.news-list .news-description .news-data {
+    margin-bottom: 12px;
+}
+
+.news-list .news-description .news-data span {
+    display:inline-block;
+    margin-right:20px;
+}
+
+
+
+/* news page */
+.news-description.news {
+    padding:5px 25px;
+}
+
+/* .comments .comment {
+    margin-bottom:30px;
+} */
+
+.comments .comment img {
+    width: 60%;
+    margin: 3px 50px;
+    border-radius: 47px;
+}
+
+.comments .comment .sub-comments {
+    padding-left:70px;
+    margin-top:10px;
+}
+
+
+
+
+/* Page Courses */
+.courses {
+
+}
+
+.courses .course {
+    border: 1px solid #65ba0f;
+    box-shadow: 2px 2px 6px 0px #8c8c8c;
+}
+
+.courses .course .course-image {
+    padding: 150px 0;
+    background-size: cover;
+    position: relative;
+}
+
+.courses .course .price {
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    background-color: #5fb10d;
+    padding: 5px;
+    color: #fff;
+}
+
+.courses .course .course-description {
+    padding: 0 10px;
+}
+
+.courses .course .course-description h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.courses .course .course-description h3 a {
+    text-decoration: none;
+    color:#000;
+}
+
+.courses .course .course-description h3 a:hover {
+    color:#65ba0f;
+}
+
+.courses .course .course-description .teacher {
+    padding-bottom:15px;
+}
+
+.courses .course .course-description .teacher img {
+    margin-left:15px;
+}
+
+.course-details {
+    border:1px solid #65ba0f;
+    padding:20px;
+}
+
+.course-details .item {
+    border-bottom:1px solid #65ba0f;
+    margin-bottom:10px;
+    padding: 0 10px;
+    font-size:15px;
+}
+
+.course-details .item .key{
+    font-weight:bold;
+}
+
+.register, .login, .main-login {
+    padding:60px;
+}
+
+.login {
+    display: none;
+}
