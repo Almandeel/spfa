@@ -20,6 +20,7 @@ Route::group(['middleware' => 'maintenance'], function () {
     Route::get('/share/facebook/{id}', 'SiteController@share')->name('share-facebook');
     Route::get('/contact', 'SiteController@contact')->name('contact');
     Route::post('sendmail', 'SiteController@sendMail')->name('sendmail');
+    Route::get('get/comments/{id}', 'SiteController@getComments')->name('comments.index');
     Route::post('comments', 'SiteController@comment')->name('comments.store');
     Route::get('profile', 'SiteController@profile')->name('profile')->middleware('auth');
     Route::get('/logout', function () {

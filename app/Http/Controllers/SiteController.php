@@ -125,13 +125,22 @@ class SiteController extends Controller
     }
 
 
+
+    //get Comments
+
+    public function getComments($post) {
+        $comments = Comment::with('user')->where('news_id', $post)->get();
+        return json_encode($comments);
+    }
+
+
     //Store comments
 
     public function comment(Request $request) {
         $comment = Comment::create([
             'comment' => $request->comment,
-            'news_id' => $request->news_id,
-            'user_id' => auth()->user()->id,
+            'news_id' => $request->post_id,
+            'user_id' => $request->user_id,
         ]);
 
         return back();

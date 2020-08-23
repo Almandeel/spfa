@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+
 </head>
 <body>
     <div class="container main-content">
@@ -73,48 +74,50 @@
         </div>
         <!-- /scound navbar -->
 
-        <!-- logo -->
-        <header>
-            <div class="logo-image">
-                <a href="{{ url('/') }}"><img src="{{ asset('images/settings/' . $setting->site_logo) }}" alt="logo"/></a>
-                <h1><a href="{{ url('/') }}">{{ $setting->site_name }}</a></h1>
-            </div>
-        </header>
-        <!-- /logo -->
-
-        <!-- main navbar -->
+        
+            <!-- logo -->
+            <header>
+                <div class="logo-image">
+                    <a href="{{ url('/') }}"><img src="{{ asset('images/settings/' . $setting->site_logo) }}" alt="logo"/></a>
+                    <h1><a href="{{ url('/') }}">{{ $setting->site_name }}</a></h1>
+                </div>
+            </header>
+            <!-- /logo -->
+    
+            <!-- main navbar -->
             <nav class="navbar navbar-inverse main-navbar">
                 <div style="position:relative" class="container">
                     <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                      </button>
+                        </button>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav">
                         <li {{ Request::url() === url('/') ? "class=active" : '' }} style="font-size:20px"><a href="{{ route('home') }}"><i class="fa fa-home"></i></a></li>
                         <li {{ Request::url() === url('/about') ? "class=active" : '' }}><a href="{{ route('about') }}">@lang('menu.about')</a></li>
                         <li {{ Request::url() === url('/courses') ? "class=active" : '' }}><a href="{{ route('courses') }}">@lang('menu.courses')</a></li>
                         <li {{ Request::url() === url('/blog') ? "class=active" : '' }}><a href="{{ route('blog') }}">@lang('menu.blog')</a></li>
                         <li {{ Request::url() === url('/contact') ? "class=active" : '' }}><a href="{{ route('contact') }}">@lang('menu.contact')</a></li>
-                      </ul>
+                        </ul>
                     </div><!-- /.navbar-collapse -->
                 </div>
             </nav>
-        <!-- /main navbar -->
-
-
-        @yield('content')
-
-        <!-- footer -->
-        <footer class="text-center">
-            <p>@lang('global.copy_right') &copy; <script>document.write(new Date().getFullYear())</script></p>
-        </footer>
-        <!-- /fotter -->
+            <!-- /main navbar -->
+    
+            <div id="app">
+                @yield('content')
+            </div>
+    
+            <!-- footer -->
+            <footer class="text-center">
+                <p>@lang('global.copy_right') &copy; <script>document.write(new Date().getFullYear())</script></p>
+            </footer>
+            <!-- /fotter -->
         <!-- js -->
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -123,6 +126,7 @@
         <script src="{{ asset('js/wow.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         @stack('js')
+        <script src="{{ asset('js/app.js') }}"></script>
     </div>
 </body>
 </html>

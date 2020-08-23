@@ -60,45 +60,11 @@
                 </div>
             </div>
 
-            <div class="comments">
-                <h4 class="title">@lang('global.comments')</h4>
-                <div class="comment">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <i class="fa fa-user"></i> <h4 class="user-name">Admin</h4> 
-                            <p class="comment">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                        </div>
-                    </div>
-                    <div class="sub-comments">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <i class="fa fa-user"></i> <h4 class="user-name">Admin</h4> 
-                                <p class="comment">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="comment">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <i class="fa fa-user"></i> <h4 class="user-name">Admin</h4> 
-                            <p class="comment">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <form action="{{ route('comments.store') }}" method="post">
-                    @csrf 
-                    <textarea name="comment" cols="30" rows="7" class="form-control form-group" placeholder="@lang('global.comment')"></textarea>
-                    <div class="form-group">
-                        <input type="hidden" name="news_id" value="{{ $post->id }}">
-                        <button class="btn btn-primary btn-sm">@lang('global.send')</button>
-                    </div>
-                </form>
-            </div>
+            <comment-component post_id="{{ $post->id }}" user_id="{{ auth()->user()->id }}"></comment-component>
         </div>
+
+
         <div class="col-md-4">
             <aside>
                 <div class="asite-item">
@@ -140,7 +106,6 @@
             </aside>
         </div>
     </div>
-
 @endsection
 
 @push('js')

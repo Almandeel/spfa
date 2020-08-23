@@ -13,4 +13,8 @@ class Comment extends Model
     public function news() {
         return $this->belongsTo('App\News', 'news_id');
     }
+
+    public function user() {
+        return $this->belongsTo('App\User', 'user_id');
+    }
 }
