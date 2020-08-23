@@ -126,7 +126,6 @@
         <script src="{{ asset('js/wow.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         @stack('js')
-        <script src="{{ asset('js/app.js') }}"></script>
     </div>
 </body>
 </html>

@@ -31,24 +31,24 @@ class SiteController extends Controller
         $sliders    = Slider::limit(4)->get();
         $about      = Information::orderBy('created_at', 'DESC')->limit(3)->get();
         $courses    = Course::orderBy('created_at', 'DESC')->limit(4)->get();
-        $news       = News::orderBy('created_at', 'DESC')->limit(4)->get();
+        $lastnews       = News::orderBy('created_at', 'DESC')->limit(4)->get();
         $setting    = Setting::first();
         $contacts   = Network::all();
-        return view('site.index', compact('sliders', 'about', 'courses','news', 'setting', 'contacts'));
+        return view('site.index', compact('sliders', 'about', 'courses','lastnews', 'setting', 'contacts'));
     }
 
     public function about() {
         $first      = Information::first();
         $about      = Information::orderBy('created_at', 'DESC')->get();
         $categories = Category::all();
-        $news       = News::orderBy('created_at', 'DESC')->limit(4)->get();
+        $lastnews       = News::orderBy('created_at', 'DESC')->limit(4)->get();
         $setting    = Setting::first();
         $contacts   = Network::all();
-        return view('site.about', compact('about', 'setting', 'first', 'categories', 'news', 'contacts'));
+        return view('site.about', compact('about', 'setting', 'first', 'categories', 'lastnews', 'contacts'));
     }
 
     public function courses() {
-        $courses    = Course::orderBy('created_at', 'DESC')->get();
+        $courses    = Course::orderBy('created_at', 'DESC')->paginate(7);
         $categories = Category::all();
         $lastnews   = News::orderBy('created_at', 'DESC')->limit(4)->get();
         $setting    = Setting::first();
@@ -64,7 +64,7 @@ class SiteController extends Controller
     }
 
     public function blog() {
-        $news       = News::orderBy('created_at', 'DESC')->get();
+        $news       = News::orderBy('created_at', 'DESC')->paginate(7);
         $categories = Category::all();
         $lastnews   = News::orderBy('created_at', 'DESC')->limit(4)->get();
         $setting    = Setting::first();
@@ -170,34 +170,17 @@ class SiteController extends Controller
         $setting        = Setting::first();
         $contacts       = Network::all();
         $categories       = Category::all();
-        $news       = News::orderBy('created_at', 'DESC')->limit(4)->get();
-        return view('site.news.create', compact('setting', 'contacts', 'categories', 'news'));
+        $lastnews       = News::orderBy('created_at', 'DESC')->limit(4)->get();
+        return view('site.news.create', compact('setting', 'contacts', 'categories', 'lastnews'));
     }
 
-    public function storeNews(Request $request) {
-        $request->validate([
-            // 'name_' . app()->getLocale() => 'required|regex:/^[\p{L} ]+$/u',
-            // 'description_' . app()->getLocale() => 'regex:/^[\p{L} ]+$/u',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        
-
-        $news = News::create($request->except(['image']));
-        for($i = 0; $i < count(config('translatable.locales')); $i++) {
-            
-            $locale = config('translatable.locales')[$i];
-            $news_name = "name_" . $locale;
-            $news->setTranslation('name', $locale, $request->$news_name);
-            
-            $news_description = "description_" . $locale;
-            $news->setTranslation('description', $locale, $request->$news_description);
-        }
-        
-        $imageName = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('images/news'), $imageName);
-        $news->image = $imageName;
-        
-        $news->save();
+    public function editNews($id) {
+        $setting        = Setting::first();
+        $contacts       = Network::all();
+        $categories = Category::all();
+        $post = News::find($id);
+        $lastnews       = News::orderBy('created_at', 'DESC')->limit(4)->get();
+        return view('site.news.edit', compact('setting', 'contacts', 'categories', 'lastnews', 'post'));
     }
 
 }

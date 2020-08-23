@@ -36,7 +36,14 @@
                     <img style="width:100%" src="{{ asset('images/news/' . $post->image) }}" alt="news1">
                 </div>
                 <div class="news-description news">
-                    <h2>{{ $post->name }}</h2>
+                    <h2>
+                        {{ $post->name }}
+                        @if($post->author_id == auth()->user()->id || auth()->user()->hasPermission('news-update'))
+                            <div class="pull-left">
+                                <a href="{{ route('edit.news', $post->id) }}" class="btn btn-warning btn-xs button"><i class="fa fa-edit"></i> @lang('global.edit')</a>
+                            </div>
+                        @endif
+                    </h2>
                     <div class="news-data">
                         <span>
                             <i class="fa fa-calendar"></i> {{ \Carbon::parse($post->created_at)->formatLocalized('%Y %b %d') }}
@@ -59,8 +66,6 @@
                     </p>
                 </div>
             </div>
-
-
             <comment-component post_id="{{ $post->id }}" user_id="{{ auth()->user()->id }}"></comment-component>
         </div>
 
@@ -109,5 +114,6 @@
 @endsection
 
 @push('js')
-    <script src="{{ asset('js/share.js') }}"></script>   
+    <script src="{{ asset('js/share.js') }}"></script>  
+    <script src="{{ asset('js/app.js') }}"></script>
 @endpush

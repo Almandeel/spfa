@@ -355,9 +355,9 @@ aside .category_list a:hover {
     text-decoration: none;
 }
 
-.news-list .news-description a:hover {
+/* .news-list .news-description a:hover {
     color:#65ba0f;
-}
+} */
 
 .news-list .news-description .news-data {
     margin-bottom: 12px;

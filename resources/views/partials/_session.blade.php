@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="{{ asset('dashboard/plugins/noty/noty.css') }}">
+<script src="{{ asset('dashboard/plugins/noty/noty.min.js') }}"></script>
+
+
 @if (session('success'))
 
     <script>

@@ -35,7 +35,15 @@
                     <img style="width:100%" src="<?php echo e(asset('images/news/' . $post->image)); ?>" alt="news1">
                 </div>
                 <div class="news-description news">
-                    <h2><?php echo e($post->name); ?></h2>
+                    <h2>
+                        <?php echo e($post->name); ?>
+
+                        <?php if($post->author_id == auth()->user()->id || auth()->user()->hasPermission('news-update')): ?>
+                            <div class="pull-left">
+                                <a href="<?php echo e(route('edit.news', $post->id)); ?>" class="btn btn-warning btn-xs button"><i class="fa fa-edit"></i> <?php echo app('translator')->getFromJson('global.edit'); ?></a>
+                            </div>
+                        <?php endif; ?>
+                    </h2>
                     <div class="news-data">
                         <span>
                             <i class="fa fa-calendar"></i> <?php echo e(\Carbon::parse($post->created_at)->formatLocalized('%Y %b %d')); ?>
@@ -60,8 +68,6 @@
                     </p>
                 </div>
             </div>
-
-
             <comment-component post_id="<?php echo e($post->id); ?>" user_id="<?php echo e(auth()->user()->id); ?>"></comment-component>
         </div>
 
@@ -110,6 +116,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('js'); ?>
-    <script src="<?php echo e(asset('js/share.js')); ?>"></script>   
+    <script src="<?php echo e(asset('js/share.js')); ?>"></script>  
+    <script src="<?php echo e(asset('js/app.js')); ?>"></script>
 <?php $__env->stopPush(); ?>
 <?php echo $__env->make('layouts.site.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/laravel_spfa/resources/views/site/post.blade.php ENDPATH**/ ?>

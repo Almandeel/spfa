@@ -126,7 +126,6 @@
         <script src="<?php echo e(asset('js/wow.min.js')); ?>"></script>
         <script src="<?php echo e(asset('js/main.js')); ?>"></script>
         <?php echo $__env->yieldPushContent('js'); ?>
-        <script src="<?php echo e(asset('js/app.js')); ?>"></script>
     </div>
 </body>
 </html><?php /**PATH /opt/lampp/htdocs/laravel_spfa/resources/views/layouts/site/master.blade.php ENDPATH**/ ?>

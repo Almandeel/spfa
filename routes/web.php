@@ -30,7 +30,7 @@ Route::group(['middleware' => 'maintenance'], function () {
 
     //maneg news
     Route::get('/create/news', 'SiteController@createNews')->name('create.news');
-    Route::post('/create/news', 'SiteController@storeNews')->name('store.news');
+    Route::get('/edit/news/{id}', 'SiteController@editNews')->name('edit.news');
 });
 
 

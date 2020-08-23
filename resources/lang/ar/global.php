@@ -149,7 +149,7 @@ return [
     'teachers_list'         => 'قائمة الاساتذة',
     'register'              => 'تسجيل',
     'last_post'             => 'اخر المقالات',
-    'category'              => 'الاقسام',
+    'category'              => 'القسم',
     'enroll_course'         => 'احجز مقعدك',
     'sdg'                   => 'جنيه',
     'date'                  => 'التاريخ',

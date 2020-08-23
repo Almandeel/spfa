@@ -72,7 +72,7 @@ class NewsController extends Controller
         
         $news->save();
         if($request->next == 'back'){
-            return redirect()->route('news.create')->with('success', __('global.create_success'));
+            return back()->with('success', __('global.update_success'));
         }else{
             return redirect()->route('news.index')->with('success', __('global.create_success'));
         }
