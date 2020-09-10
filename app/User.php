@@ -40,5 +40,13 @@ class User extends Authenticatable
         return $this->belongsTo('App\Employee', 'employee_id');
     }
 
+    public function commits() {
+        return $this->hasMany('App\Comment');
+    }
+
+    public function courseBooking() {
+        return $this->hasMany('App\course_booking');
+    }
+
 
 }
