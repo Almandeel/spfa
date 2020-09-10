@@ -157,9 +157,14 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        if(file_exists(public_path('images/members' . DIRECTORY_SEPARATOR . $user->image)))  unlink(public_path('images/members' . DIRECTORY_SEPARATOR . $user->image));
         $user->roles()->detach();
 
         $user->permissions()->detach();
+
+        foreach($user->commits as $commit) {
+            $commit->delete();
+        }
 
         $user->delete();
 
