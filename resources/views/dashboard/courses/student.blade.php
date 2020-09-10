@@ -23,16 +23,9 @@
                 <tbody>
                     <tr>
                         <th style="width: 200px;">@lang('global.name')</th>
-                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->user->name }}</td>
                     </tr>
-                    <tr>
-                        <th style="width: 200px;">@lang('global.gender')</th>
-                        <td>{{ $student->gender }}</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px;">@lang('global.degree')</th>
-                        <td>{{ $student->degree }}</td>
-                    </tr>
+                    
                     <tr>
                         <th style="width: 200px;">@lang('global.phone')</th>
                         <td>{{ $student->phone }}</td>

@@ -15,6 +15,7 @@
         "laravel/tinker": "^1.0",
         "nesbot/carbon": "^2.29",
         "niklasravnsborg/laravel-pdf": "^3.1",
+        "pusher/pusher-php-server": "^4.1",
         "rackspace/php-opencloud": "dev-master",
         "santigarcor/laratrust": "5.2.*",
         "spatie/laravel-translatable": "^4.2"

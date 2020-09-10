@@ -136,6 +136,15 @@
                                     <label for="goal">@lang('global.goal')</label>
                                     <textarea style="resize: none;" name="goal" id="goal" cols="5" rows="5" class="form-control" placeholder="@lang('global.goal')"></textarea>
                                 </div>
+                                @guest
+
+                                @else
+                                    @if(auth()->user()->adjective)
+                                        <input type="hidden" name="price" class="form-control" value="{{ $course->price == 0 ? 0 : ($course->price - $course->discount) }} "/>
+                                    @else 
+                                        <input type="hidden" name="price" class="form-control" value="{{ $course->price == 0 ? 0 : $course->price }} "/>
+                                    @endif 
+                                @endguest
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="course_id" value="{{ $course->id }}"/>

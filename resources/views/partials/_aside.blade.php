@@ -8,9 +8,13 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        @if(auth()->user()->adjective == 2)
-                            <p style="padding: 6% 17%;"><a href="{{ route('create.news') }}"><i class="fa fa-angle-double-right"></i> @lang('global.add') @lang('news.post')</a></p>
-                        @endif
+                        @guest
+                            
+                        @else 
+                            @if(auth()->user()->adjective == 1)
+                                <p style="padding: 6% 17%;"><a href="{{ route('create.news') }}"><i class="fa fa-angle-double-right"></i> @lang('global.add') @lang('news.post')</a></p>
+                            @endif
+                        @endguest
                     </div>
                 </div>
             </div>

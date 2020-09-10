@@ -240,18 +240,16 @@
             <th>#</th>
             <th>@lang('global.name')</th>
             <th>@lang('global.phone')</th>
-            <th>@lang('global.gender')</th>
-            <th>@lang('global.degree')</th>
+            <th>@lang('global.price')</th>
           </tr>
         </thead>
         <tbody>
             @foreach ($course->students as $student)
               <tr>
                   <td scope="row">{{ $student->id }}</td>
-                  <td>{{ $student->name }}</td>
-                  <td>{{ $student->phone }}</td>
-                  <td>{{ $student->gender }}</td>
-                  <td>{{ $student->degree }}</td>
+                  <td>{{ $student->user->name }}</td>
+                  <td>{{ $student->user->phone }}</td>
+                  <td>{{ $student->price }}</td>
               </tr>
             @endforeach
         </tbody>

@@ -86,16 +86,18 @@
                 <thead>
                     <tr>
                         <th>@lang('global.name')</th>
+                        <th>@lang('global.price')</th>
                         <th>@lang('global.options')</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        @foreach ($course->students as $student)
-                            <td>{{ $student->name }}</td>
+                    @foreach ($course->students as $student)
+                        <tr>
+                            <td>{{ $student->user->name }}</td>
+                            <td>{{ $student->price }}</td>
                             <td><a class="btn btn-info btn-sm" href="{{ route('course', $student->id) }}"><i class="fa fa-eye"></i> @lang('global.view')</a></td>
-                        @endforeach
-                    </tr>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

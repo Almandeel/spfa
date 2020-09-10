@@ -16,7 +16,7 @@
             <textarea v-model="comment" name="comment" cols="30" rows="7" v-text="comment" class="form-control form-group"></textarea>
             <div class="form-group">
                 <input type="hidden" name="news_id" value="">
-                <button type="button" class="btn btn-primary btn-sm" @click="storeComment()" >@lang('global.send')</button>
+                <button type="button" class="btn btn-primary btn-sm" @click="storeComment()" >Send</button>
             </div>
         </form>
     </div>
@@ -36,7 +36,9 @@ export default {
         }
     },
     mounted () {
-
+        window.Echo.channel("new-comment").listen("CommentEvent", e => {
+            this.getComments();
+        })
     },
 
     methods : {

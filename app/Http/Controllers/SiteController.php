@@ -16,6 +16,7 @@ use App\Service;
 use App\Setting;
 use App\Category;
 use App\Information;
+use App\Events\CommentEvent;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -31,10 +32,10 @@ class SiteController extends Controller
         $sliders    = Slider::limit(4)->get();
         $about      = Information::orderBy('created_at', 'DESC')->limit(3)->get();
         $courses    = Course::orderBy('created_at', 'DESC')->limit(4)->get();
-        $lastnews       = News::orderBy('created_at', 'DESC')->limit(4)->get();
+        $news       = News::orderBy('created_at', 'DESC')->limit(6)->get();
         $setting    = Setting::first();
         $contacts   = Network::all();
-        return view('site.index', compact('sliders', 'about', 'courses','lastnews', 'setting', 'contacts'));
+        return view('site.index', compact('sliders', 'about', 'courses','news', 'setting', 'contacts'));
     }
 
     public function about() {
@@ -87,7 +88,7 @@ class SiteController extends Controller
     }
 
     public function categoryPost($category) {
-        $news       = News::where('category_id', $category)->orderBy('created_at', 'DESC')->get();
+        $news       = News::where('category_id', $category)->orderBy('created_at', 'DESC')->paginate(7);
         $categories = Category::all();
         $lastnews   = News::orderBy('created_at', 'DESC')->limit(4)->get();
         $setting    = Setting::first();
@@ -142,6 +143,8 @@ class SiteController extends Controller
             'news_id' => $request->post_id,
             'user_id' => $request->user_id,
         ]);
+
+        event(new CommentEvent);
 
         return back();
     }

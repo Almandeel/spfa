@@ -22,7 +22,7 @@
 
 @section('content')
 
-    <div class="col-md-6">
+    <div class="col-md-12">
         @if(session('registred'))
             <div class="alert alert-info">
                 <h4>@lang(session('registred'))</h4>
